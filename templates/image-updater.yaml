@@ -4,11 +4,14 @@ metadata:
   name: image-updater
   namespace: argocd
 spec:
+  commonUpdateSettings:
+    forceUpdate: false
+    useAnnotations: false
+    pullsecret: argocd/harbor-dockerconfigjson
+    updateStrategy: "digest"
   applicationRefs:
     - namePattern: "k8s-demo-dev"
       images:
         - alias: "k8s-demo-dev"
           imageName: "harbor.sabihinmolang.eu.org/demo/demo-dev:latest"
-          commonUpdateSettings:
-            pullsecret: argocd/harbor-dockerconfigjson
-            updateStrategy: "digest"
+          
