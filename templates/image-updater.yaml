@@ -1,0 +1,14 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind:   
+metadata:
+  name: image-updater
+  namespace: argocd
+spec:
+  applicationRefs:
+    - namePattern: "k8s-demo-dev"
+      images:
+        - alias: "k8s-demo-dev"
+          imageName: "harbor.sabihinmolang.eu.org/demo/demo-dev:latest"
+          commonUpdateSettings:
+            pullsecret: argocd/harbor-dockerconfigjson
+            updateStrategy: "digest"
