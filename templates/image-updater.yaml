@@ -5,14 +5,23 @@ metadata:
   namespace: argocd
 spec:
   commonUpdateSettings:
-    forceUpdate: false
+    pullsecret: argocd/harbor-dockerconfigjson
   applicationRefs:
     - namePattern: "k8s-demo-dev"
       images:
         - alias: "k8s-demo-dev"
           imageName: "harbor.sabihinmolang.eu.org/demo/demo-dev:latest"
           commonUpdateSettings:
-            pullsecret: argocd/harbor-dockerconfigjson
             updateStrategy: "digest"
-
-          
+    - namePattern: "k8s-ironcurtain-be"
+      images:
+        - alias: "k8s-ironcurtain-be"
+          imageName: "quay.io/veenoise/k8s-ironcurtain-be:latest"
+          commonUpdateSettings:
+            updateStrategy: "digest"
+    - namePattern: "k8s-ironcurtain-fe"
+      images:
+        - alias: "k8s-ironcurtain-fe"
+          imageName: "quay.io/veenoise/k8s-ironcurtain-fe:latest"
+          commonUpdateSettings:
+            updateStrategy: "digest"
