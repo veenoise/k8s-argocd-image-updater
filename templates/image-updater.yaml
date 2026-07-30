@@ -25,3 +25,9 @@ spec:
           imageName: "quay.io/veenoise/k8s-ironcurtain-fe:latest"
           commonUpdateSettings:
             updateStrategy: "digest"
+    - namePattern: "dev-k8s-next-demo-helm"
+      images:
+        - alias: "dev-k8s-next-demo-helm"
+          imageName: "quay.io/veenoise/k8s-next-demo:develop"
+          commonUpdateSettings:
+            updateStrategy: "digest"
