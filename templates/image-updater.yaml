@@ -31,3 +31,15 @@ spec:
           imageName: "quay.io/veenoise/k8s-next-demo:develop"
           commonUpdateSettings:
             updateStrategy: "digest"
+    - namePattern: "staging-k8s-next-demo-helm"
+      images:
+        - alias: "staging-k8s-next-demo-helm"
+          imageName: "quay.io/veenoise/k8s-next-demo:staging"
+          commonUpdateSettings:
+            updateStrategy: "digest"
+    - namePattern: "main-k8s-next-demo-helm"
+      images:
+        - alias: "main-k8s-next-demo-helm"
+          imageName: "quay.io/veenoise/k8s-next-demo:main"
+          commonUpdateSettings:
+            updateStrategy: "digest"
